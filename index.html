@@ -7,7 +7,7 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
 Authors in chronological order of contribution:
 Tim Riedel
-Author 2
+Akansha Bojjam
  
 Further Information:
 http://diystream.cns.utexas.edu/
@@ -17,10 +17,10 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-blah, blah, blah,
+Simple diagnostic to find if an individual's symptoms are that of a pimple or cold sore
  
 Known Issues:
-blah, blah, blah, blah
+None
 Ignore this error message if you see it using the javaScript console: Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'.
 
 References:
@@ -28,8 +28,8 @@ https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
 -->
 	
-<head> 
-	<title>Hello World</title>  
+<head> <!--this section creates header--> 
+	<title>Pimple or Cold Sore</title>  <!--names website -->
 ]	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="stylesheet" href="w3.css">
@@ -37,8 +37,18 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 </head> 
 
 <script>
+	var pimple_count = 0; // creates variable to keep track of answers corresponding to pimple
+        var coldsore_count = 0; // creates variable to keep track of answers corresponding to cold sore
 
-	//YOUR JAVASCRIPT GOES HERE
+
+        function pimpleAdd(){ // new function to count pimple answers
+            pimple_count = pimple_count + 1; // adds one point to pimple variable 
+
+        }
+
+        function coldsoreAdd(){ // new function to count cold sore answers
+            coldsore_count = coldsore_count + 1; // adds one point to cold sore variable 
+        }
 
 </script>	
 
@@ -68,8 +78,95 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 <body>
 	
-	<!-- HERE IS WHERE ALL OF YOUR HTML PAGES GO -->
-	REPLACE THIS TEXT
+	<div id="header" class="w3-container w3-flat-carrot"> <!--creates box for header-->
+	<h1>Pimple or Cold Sore?</h1> <!--names header-->
+</div>
+	
+<div id="content" class="w3-container"> <!--tells us content follows this-->
+	<p>Are you unsure if you have a pimple or a cold sore? Answer a few short questions to find out!</p> <!--prints intro text-->
+	
+	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a> <!--creates get started button-->
+	
+	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+ 	
+	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p> <!--text displays on intro page-->
+
+<div class="page" id="one"> <!--creates page 1-->
+	<div id="header" class="w3-container w3-flat-carrot"> <!--tells us header text is next-->
+		<h1>Question 1</h1> <!--prints question 1-->
+	</div>
+	
+    	<div id="content" class="w3-container"> <!--tells us content is next-->
+        <p>Are your eyes watery or itchy?</p> <!--displays question text-->   
+    	</div>
+
+	<a href="#two" onclick="allergyAdd();" class="w3-btn w3-black"> Yes </a> <!--added onclick function to keep track of allergy answers, creates button-->
+	<a href="#two" onclick="coldAdd();" class="w3-btn w3-black"> No </a> <!--added onclick function to keep track of cold answers, createst button-->
+</div>
+
+<div class="page" id="two"> <!--creates page 2-->
+	<div class="w3-container w3-flat-carrot"> <!--tells us header text is next-->
+		<h1>Question 2</h1> <!--prints question 2-->
+	</div>
+	
+	<div id="content" class="w3-container"> <!--tells us content is next-->
+		<p>Do you have a fever?</p> <!--displays question text-->   
+	</div>
+
+	<a href="#three" onclick="coldAdd();" class="w3-btn w3-black"> Yes </a> <!--changed word after "href" from two to three so it links to the next page, adds to cold variable, creates button-->
+	<a href="#three" onclick="allergyAdd();" class="w3-btn w3-black"> No </a> <!--changed word after "href" from two to three so it links to the next page, adds to allergy variable, creates button-->
+</div>	
+
+<div class="page" id="three"> <!--creates page 3-->
+	<div class="w3-container w3-flat-carrot"> <!--tells us header text is next-->
+		<h1>Question 3</h1> <!--prints question 3-->
+	</div>
+	
+	<div id="content" class="w3-container"> <!--tells us content text is next-->
+		<p>Do you have a sore throat?</p> <!--displays question text-->   
+	</div>
+
+	<a href="#four" onclick="coldAdd();" class="w3-btn w3-black"> Yes </a> <!--changed word after "href" from two to four so it links to the next page, adds to cold variable, creates button-->
+	<a href="#four" onclick="allergyAdd();" class="w3-btn w3-black"> No </a> <!--changed word after "href" from two to four so it links to the next page, adds to allergy variable, creates button-->
+</div>	
+
+<div class="page" id="four"> <!--creates page 4-->
+	<div class="w3-container w3-flat-carrot"> <!--tells us header text is next-->
+		<h1>Question 4</h1> <!--prints question 4-->
+	</div>
+	
+	<div id="content" class="w3-container"> <!--tells us content text is next-->
+		<p>Are your symptoms seasonal or chronic?</p> <!--displays question 4 text-->   
+	</div>
+
+	<a href="#Results Page" onclick="allergyAdd();" class="w3-btn w3-black"> Yes </a> <!--changed word after "href" from two to results page so it links to the next page, adds to allergy variable, creates button-->
+	<a href="#Results Page" onclick="coldAdd();" class="w3-btn w3-black"> No </a><!--changed word after "href" from two to results page so it links to the next page, adds to cold variable, creates button-->
+</div>	
+
+<div class="page" id="Results Page"> <!--created new page for results-->
+	<div id="header" class="w3-container w3-flat-carrot"> <!--tells us header text is next-->
+		<h1>Results Page</h1> <!--prints results page-->
+	</div> 
+
+	<div id="content" class="w3-container"> <!--creates button-->
+		<p id="results"></p> <!--calls variable for results-->
+		<a onclick="getResults()" class="w3-btn w3-black">Get results</a> <!--created button to get results-->
+		<script>
+			function getResults() // created function to get results that corresponds to earlier button (getResults)
+			{
+			var pimplePercent = 100*(pimple_count/4); // calculates pimple percentage using old variable
+			var coldsorePercent = 100*(coldsore_count/4); // calculates cold sore percentage using old variable
+			var resultText = document.getElementById("results"); // created variable to help print out the results
+			resultText.innerHTML = "Probability it is a pimple =" + pimplePercent + "%" + "<br> Probability it is a cold sore = " + coldsorePercent + "%"; // this line prints out the results text
+			} 
+		</script/>
+	</div>
+	
+</div>
+	
+<footer class="w3-bottom w3-container w3-flat-carrot"> 
+	<p>DIY!</p> 
+</footer>
 	
 </body>
 </html>
