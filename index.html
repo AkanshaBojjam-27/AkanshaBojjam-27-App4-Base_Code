@@ -74,6 +74,15 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     left: 0vw;
     z-index: 1;
 }
+
+img, object {
+
+		max-height:90%;
+			max-width:90%;
+	    }
+
+<!-- the above code resizes the image -->
+
 </style>
 
 <body>
@@ -91,17 +100,26 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
  	
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p> <!--text displays on intro page-->
 
+<!-- below section added image-->
+
+<img
+	src="https://vedix.com/cdn/shop/articles/Differentiating_Pimple_From_Cold_Sores_1024x400.png?v=1645696723
+	alt="PimpleCodeSore" width="700" height = "auto">
+
+</img>
+
+
 <div class="page" id="one"> <!--creates page 1-->
 	<div id="header" class="w3-container w3-flat-carrot"> <!--tells us header text is next-->
 		<h1>Question 1</h1> <!--prints question 1-->
 	</div>
 	
     	<div id="content" class="w3-container"> <!--tells us content is next-->
-        <p>Is it located directly on the lip (not lip line)?</p> <!--displays question text-->   
+        <p>Is it located directly on the lip or on the lip line)?</p> <!--displays question text-->   
     	</div>
 
-	<a href="#two" onclick="coldsoreAdd();" class="w3-btn w3-black"> Yes </a> <!--added onclick function to keep track of cold sore answers, creates button-->
-	<a href="#two" onclick="pimpleAdd();" class="w3-btn w3-black"> No </a> <!--added onclick function to keep track of pimple answers, creates button-->
+	<a href="#two" onclick="coldsoreAdd();" class="w3-btn w3-black"> Lip </a> <!--added onclick function to keep track of cold sore answers, creates button-->
+	<a href="#two" onclick="pimpleAdd();" class="w3-btn w3-black"> Lip Line </a> <!--added onclick function to keep track of pimple answers, creates button-->
 </div>
 
 <div class="page" id="two"> <!--creates page 2-->
@@ -136,11 +154,11 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
 	<div id="content" class="w3-container"> <!--tells us content text is next-->
-		<p>Is it a single blemish?</p> <!--displays question 4 text-->   
+		<p>Is it a single blemish or a cluster?</p> <!--displays question 4 text-->   
 	</div>
 
-	<a href="#Results Page" onclick="pimpleAdd();" class="w3-btn w3-black"> Yes </a> <!--changed word after "href" from two to results page so it links to the next page, adds to pimple variable, creates button-->
-	<a href="#Results Page" onclick="coldsoreAdd();" class="w3-btn w3-black"> No </a><!--changed word after "href" from two to results page so it links to the next page, adds to cold sore variable, creates button-->
+	<a href="#Results Page" onclick="pimpleAdd();" class="w3-btn w3-black"> Single </a> <!--changed word after "href" from two to results page so it links to the next page, adds to pimple variable, creates button-->
+	<a href="#Results Page" onclick="coldsoreAdd();" class="w3-btn w3-black"> Multiple </a><!--changed word after "href" from two to results page so it links to the next page, adds to cold sore variable, creates button-->
 </div>	
 
 <div class="page" id="Results Page"> <!--created new page for results-->
@@ -157,7 +175,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 			var pimplePercent = 100*(pimple_count/4); // calculates pimple percentage using old variable
 			var coldsorePercent = 100*(coldsore_count/4); // calculates cold sore percentage using old variable
 			var resultText = document.getElementById("results"); // created variable to help print out the results
-			resultText.innerHTML = "Probability it is a pimple =" + pimplePercent + "%" + "<br> Probability it is a cold sore = " + coldsorePercent + "%"; // this line prints out the results text
+			resultText.innerHTML = "Probability it is a pimple = " + pimplePercent + "%" + "<br> Probability it is a cold sore = " + coldsorePercent + "%"; // this line prints out the results text
 			} 
 		</script/>
 	</div>
